@@ -1,0 +1,35 @@
+name: Deploy to ps.kz via FTP
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch: {}
+
+jobs:
+  ftp-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          # ps.kz-тегі FTP түбірі доменнің өз қалтасына тікелей түсуі мүмкін ("/")
+          # немесе "Домашняя папка" деңгейінде болып, ішінде aeroclimate-academy.kz/ қалтасы болуы мүмкін.
+          # Бірінші деплойдан кейін File Manager-де файлдар дұрыс жерге түскенін тексеріп,
+          # қажет болса мына жолды "./aeroclimate-academy.kz/" етіп өзгертіңіз.
+          server-dir: ./
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/.github/**
+            **/.github/**/*
+            missing-folders.zip
+            IMG_3028.PNG
+            IMG_3029.PNG
+            IMG_3031.PNG

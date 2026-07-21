@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aeroclimate-academy.kz/sitemap.xml
