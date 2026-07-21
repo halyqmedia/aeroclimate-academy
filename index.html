@@ -405,6 +405,7 @@
   .form-note{font-size:11.5px;color:var(--steel);margin-top:12px;}
   .form-success{display:none;padding:18px;background:#eef8ee;border:1.5px solid #2e7d32;color:#1b5e20;font-size:14px;margin-top:14px;}
   .form-success.show{display:block;}
+  .form-success.error{background:#fdecea;border-color:#c62828;color:#8e1f1a;}
 
   /* ===== FOOTER ===== */
   footer{background:var(--ink);color:rgba(255,255,255,.7);padding:60px 0 26px;}
@@ -890,7 +891,7 @@
         </div>
         <div class="form-card">
           <h3 data-i18n="apply.form.h3">Заявка на курс</h3>
-          <p class="sub" data-i18n="apply.form.sub">Заполните форму — заявка откроется в WhatsApp, останется только отправить.</p>
+          <p class="sub" data-i18n="apply.form.sub">Заполните форму — заявка сразу придёт нам, вам ничего дополнительно отправлять не нужно.</p>
           <form id="apply-form">
             <div class="field">
               <label for="name" data-i18n="apply.form.labelName">Имя</label>
@@ -914,7 +915,7 @@
             <button type="submit" class="btn btn-primary btn-wide" data-i18n="apply.form.submit">Отправить заявку</button>
             <p class="form-note" data-i18n="apply.form.note">Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.</p>
           </form>
-          <div class="form-success" id="form-success" data-i18n="apply.form.success">Заявка сформирована — откройте WhatsApp, чтобы отправить её нам.</div>
+          <div class="form-success" id="form-success" data-i18n="apply.form.success">Заявка отправлена! Мы свяжемся с вами в ближайшее время.</div>
         </div>
       </div>
     </div>
@@ -1075,14 +1076,15 @@
       'apply.eyebrow':'Запись на курс','apply.h2':'Начните новую профессию на этой неделе',
       'apply.p':'Оставьте заявку — расскажем о ближайшей дате набора, ответим на вопросы и подберём курс под ваш уровень.',
       'apply.point1':'Ответим в течение рабочего дня','apply.point2':'Без обязательной предоплаты на этапе заявки','apply.point3':'Поможем выбрать курс, если не уверены с чего начать',
-      'apply.form.h3':'Заявка на курс','apply.form.sub':'Заполните форму — заявка откроется в WhatsApp, останется только отправить.',
+      'apply.form.h3':'Заявка на курс','apply.form.sub':'Заполните форму — заявка сразу придёт нам, вам ничего дополнительно отправлять не нужно.',
       'apply.form.labelName':'Имя','apply.form.labelPhone':'Телефон','apply.form.labelCourse':'Интересующий курс',
       'apply.form.placeholderName':'Как к вам обращаться','apply.form.placeholderPhone':'+7 7__ ___ __ __',
       'apply.form.option1':'Монтаж и сервис кондиционеров','apply.form.option2':'Монтаж вентиляции',
       'apply.form.option3':'Проектирование вентиляции (AutoCAD)','apply.form.option4':'VRF-системы',
       'apply.form.option5':'Промышленная и кухонная вентиляция','apply.form.option6':'Ещё не решил(а)',
-      'apply.form.submit':'Отправить заявку','apply.form.note':'Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.',
-      'apply.form.success':'Заявка сформирована — откройте WhatsApp, чтобы отправить её нам.',
+      'apply.form.submit':'Отправить заявку','apply.form.sending':'Отправка…','apply.form.note':'Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.',
+      'apply.form.success':'Заявка отправлена! Мы свяжемся с вами в ближайшее время.',
+      'apply.form.errorFallback':'Не удалось отправить заявку. Позвоните нам: +7 707 987 1125.',
 
       'footer.desc':'Учебный центр практических профессий в климатехнике: кондиционеры, вентиляция, проектирование и промышленные системы.',
       'footer.h5sections':'Разделы','footer.h5contacts':'Контакты','footer.h5social':'Соцсети',
@@ -1194,14 +1196,15 @@
       'apply.eyebrow':'Курсқа тіркелу','apply.h2':'Осы аптада жаңа мамандықты бастаңыз',
       'apply.p':'Өтінім қалдырыңыз — жақын арадағы топтың күні туралы айтамыз, сұрақтарыңызға жауап береміз және деңгейіңізге сай курс таңдаймыз.',
       'apply.point1':'Жұмыс күні ішінде жауап береміз','apply.point2':'Өтінім кезеңінде міндетті алдын ала төлемсіз','apply.point3':'Неден бастау керектігіне көзіңіз жетпесе, курс таңдауға көмектесеміз',
-      'apply.form.h3':'Курсқа өтінім','apply.form.sub':'Форманы толтырыңыз — өтінім WhatsApp-та ашылады, тек жіберу ғана қалады.',
+      'apply.form.h3':'Курсқа өтінім','apply.form.sub':'Форманы толтырыңыз — өтінім бізге бірден келеді, қосымша ешнәрсе жіберудің қажеті жоқ.',
       'apply.form.labelName':'Аты-жөні','apply.form.labelPhone':'Телефон','apply.form.labelCourse':'Қызығушылық танытатын курс',
       'apply.form.placeholderName':'Сізге қалай хабарласу керек','apply.form.placeholderPhone':'+7 7__ ___ __ __',
       'apply.form.option1':'Кондиционерлерді орнату және қызмет көрсету','apply.form.option2':'Желдетуді орнату',
       'apply.form.option3':'Желдетуді жобалау (AutoCAD)','apply.form.option4':'VRF-жүйелері',
       'apply.form.option5':'Өнеркәсіптік және ас үй желдетуі','apply.form.option6':'Әлі шешкен жоқпын',
-      'apply.form.submit':'Өтінімді жіберу','apply.form.note':'Батырманы басу арқылы сіз дербес деректерді өңдеуге келісім бересіз.',
-      'apply.form.success':'Өтінім қалыптастырылды — оны бізге жіберу үшін WhatsApp-ты ашыңыз.',
+      'apply.form.submit':'Өтінімді жіберу','apply.form.sending':'Жіберілуде…','apply.form.note':'Батырманы басу арқылы сіз дербес деректерді өңдеуге келісім бересіз.',
+      'apply.form.success':'Өтінім жіберілді! Жақын арада сізбен хабарласамыз.',
+      'apply.form.errorFallback':'Өтінімді жіберу мүмкін болмады. Бізге қоңырау шалыңыз: +7 707 987 1125.',
 
       'footer.desc':'Климаттық техникадағы практикалық мамандықтар оқу орталығы: кондиционерлер, желдету, жобалау және өнеркәсіптік жүйелер.',
       'footer.h5sections':'Бөлімдер','footer.h5contacts':'Байланыс','footer.h5social':'Әлеуметтік желілер',
@@ -1275,11 +1278,6 @@
         {"@type":"Question","name":"Одан әрі қандай курстарды өтуге болады?","acceptedAnswer":{"@type":"Answer","text":"Негізгі курстан кейін мына бағыттар ашық: желдетуді орнату, AutoCAD-та желдетуді жобалау, VRF-жүйелері, өнеркәсіптік және ас үй желдетуі."}}
       ]
     }
-  };
-
-  var waText = {
-    ru: {greeting:'Здравствуйте! Хочу записаться на курс.', name:'Имя:', phone:'Телефон:', course:'Курс:'},
-    kk: {greeting:'Сәлеметсіз бе! Курсқа тіркелгім келеді.', name:'Аты-жөні:', phone:'Телефон:', course:'Курс:'}
   };
 
   function applyLang(lang){
@@ -1369,27 +1367,47 @@
     });
   });
 
-  // Application form -> WhatsApp handoff
-  // ЗАМЕНИТЕ номер ниже на реальный WhatsApp-номер школы в формате 77001234567 (без +, без пробелов)
-  var WHATSAPP_NUMBER = '77079871125';
-
+  // Application form -> Telegram bot (server-side send via telegram-notify.php)
   document.getElementById('apply-form').addEventListener('submit', function(e){
     e.preventDefault();
     var lang = window.__currentLang || 'ru';
-    var t = waText[lang];
+    var dict = translations[lang];
+    var form = e.target;
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var successEl = document.getElementById('form-success');
     var name = document.getElementById('name').value.trim();
     var phone = document.getElementById('phone').value.trim();
     var course = document.getElementById('course').value;
 
-    var text = encodeURIComponent(t.greeting) + '%0A' +
-                encodeURIComponent(t.name) + ' ' + encodeURIComponent(name) + '%0A' +
-                encodeURIComponent(t.phone) + ' ' + encodeURIComponent(phone) + '%0A' +
-                encodeURIComponent(t.course) + ' ' + encodeURIComponent(course);
+    var originalBtnText = submitBtn.textContent;
+    submitBtn.disabled = true;
+    submitBtn.textContent = dict['apply.form.sending'];
+    successEl.classList.remove('show', 'error');
 
-    var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + text;
-
-    document.getElementById('form-success').classList.add('show');
-    window.open(url, '_blank');
+    fetch('telegram-notify.php', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({name: name, phone: phone, course: course, lang: lang})
+    })
+    .then(function(res){ return res.json().catch(function(){ return {ok:false}; }); })
+    .then(function(data){
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      if(data && data.ok){
+        successEl.textContent = dict['apply.form.success'];
+        successEl.classList.add('show');
+        form.reset();
+      } else {
+        successEl.textContent = dict['apply.form.errorFallback'];
+        successEl.classList.add('show', 'error');
+      }
+    })
+    .catch(function(){
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalBtnText;
+      successEl.textContent = dict['apply.form.errorFallback'];
+      successEl.classList.add('show', 'error');
+    });
   });
 </script>
 
